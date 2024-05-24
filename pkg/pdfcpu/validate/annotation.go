@@ -1213,6 +1213,11 @@ func validateRichMediaAnnotation(xRefTable *model.XRefTable, d types.Dict, dictN
 	return nil
 }
 
+func validateAnnotationDictBates(xRefTable *model.XRefTable, d types.Dict, dictName string) error {
+	// TODO this just validates that Bates are OK
+	return nil
+}
+
 func validateExDataDict(xRefTable *model.XRefTable, d types.Dict) error {
 
 	dictName := "ExData"
@@ -1652,6 +1657,7 @@ func validateAnnotationDictConcrete(xRefTable *model.XRefTable, d types.Dict, di
 		"3D":             {validateAnnotationDict3D, model.V16, false},
 		"Redact":         {validateAnnotationDictRedact, model.V17, true},
 		"RichMedia":      {validateRichMediaAnnotation, model.V17, false},
+		"Bates":          {validateAnnotationDictBates, model.V10, false},
 	} {
 		if subtype.Value() == k {
 
